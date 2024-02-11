@@ -1,0 +1,23 @@
+# Create a Custom Data Configuration File 'roboflow.yaml'
+
+# from roboflow import Roboflow
+# rf = Roboflow(api_key="NcB3aGvwK19nJ2N3fJKW")
+# project = rf.workspace("recycling-s3owd").project("reducereuseru")
+# dataset = project.version(1).download("yolov5")
+
+
+train: data/train/images
+val: data/valid/images
+test: data/test/images
+
+nc: 2 # number of classes
+names: ['Recycle', 'Trash'] # class names
+
+roboflow:
+  workspace: recycling-s3owd
+  project: reducereuseru
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/recycling-s3owd/reducereuseru/dataset/1
+
+# python train.py --img 640 --batch 8 --epochs 10 --data data/roboflow.yaml --weights yolov5s.pt --cache
